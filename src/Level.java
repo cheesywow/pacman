@@ -47,7 +47,7 @@ public class Level implements KeyListener{
 	int foodCounter = 0;
 	boolean enableSound = true; 
 	//sound clip
-	URL url = getClass().getResource("food.wav");
+	URL url = getClass().getResource("misc/food.wav");
 	AudioClip clip = Applet.newAudioClip(url);
 	
 	public void mainloop(){
