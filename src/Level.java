@@ -100,9 +100,9 @@ public class Level implements KeyListener{
 	 * Initializes the onscreen components
 	*/
 	public void initialize(String level) throws IOException {
-		//Reas image
+		//Reads image
 		BufferedImage image;
-		String lvl = "src/"+level+".png";
+		String lvl = "src/maps/"+level+".png";
 		File file = new File(lvl);
 		image = ImageIO.read(file);
 		//each index of the 2D array is made into food/wall
@@ -118,7 +118,7 @@ public class Level implements KeyListener{
 		panel.setLayout(null);
 		//add pacman to the panel
 		pacman = new Pacman();
-		pacmansprite.setIcon(new ImageIcon("src/RightOpened.png"));
+		pacmansprite.setIcon(new ImageIcon("src/pacman_img/RightOpened.png"));
 		pacmansprite.setBounds(250, 200, 25, 25);
 		panel.add(pacmansprite);
 		
@@ -126,9 +126,9 @@ public class Level implements KeyListener{
 		//read map from pixel image
 		drawmap(readmap(image));
 		// add ghosts 
-		g1 = new ghost(50,50,new ImageIcon("src/Ghost1.png"),colours);
-		g2 = new ghost(325,50,new ImageIcon("src/Ghost2.png"),colours);
-		g3 = new ghost(50,325,new ImageIcon("src/Ghost3.png"),colours);
+		g1 = new ghost(50,50,new ImageIcon("src/ghost_img/Ghost1.png"),colours);
+		g2 = new ghost(325,50,new ImageIcon("src/ghost_img/Ghost2.png"),colours);
+		g3 = new ghost(50,325,new ImageIcon("src/ghost_img/Ghost3.png"),colours);
 		panel.add(g1.sprite);
 		panel.add(g2.sprite);
 		panel.add(g3.sprite);
@@ -265,7 +265,7 @@ public class Level implements KeyListener{
 				}
 				else if(colours[x][y].equals(wall)){
 					// if colour of the pixel is blue, convert it into wall and put into the 2D array
-					foodArray[x][y] =  new JLabel(new ImageIcon("src/wall.png"));
+					foodArray[x][y] =  new JLabel(new ImageIcon("src/misc/wall.png"));
 					foodArray[x][y].setBounds(startingX,startingY, 15,15);
 					foodArray[x][y].setForeground(Color.pink);
 					startingX += interval;
@@ -477,27 +477,27 @@ public class Level implements KeyListener{
 	public void changeIcon(){
 		if (pacman.direction.equals("up")){
 			if (mouthOpen)
-				pacmansprite.setIcon(new ImageIcon("src/UpClosed.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/UpClosed.png"));
 			else
-				pacmansprite.setIcon(new ImageIcon("src/UpOpened.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/UpOpened.png"));
 		}
 		if (pacman.direction.equals("down")){
 			if (mouthOpen)
-				pacmansprite.setIcon(new ImageIcon("src/DownClosed.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/DownClosed.png"));
 			else
-				pacmansprite.setIcon(new ImageIcon("src/DownOpened.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/DownOpened.png"));
 		}
 		if (pacman.direction.equals("left")){
 			if (mouthOpen)
-				pacmansprite.setIcon(new ImageIcon("src/LeftClosed.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/LeftClosed.png"));
 			else
-				pacmansprite.setIcon(new ImageIcon("src/LeftOpened.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/LeftOpened.png"));
 		}
 		if (pacman.direction.equals("right")){
 			if (mouthOpen)
-				pacmansprite.setIcon(new ImageIcon("src/RightClosed.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/RightClosed.png"));
 			else
-				pacmansprite.setIcon(new ImageIcon("src/RightOpened.png"));
+				pacmansprite.setIcon(new ImageIcon("src/pacman_img/RightOpened.png"));
 		}
 		
 		mouthOpen = !mouthOpen;
